@@ -739,9 +739,9 @@ print_error_arrow(char *buffer, off_t offset, char *fmt, ...)
 	va_start(ap, fmt);
 	size = vfprintf(stderr, fmt, ap);
 	va_end(ap);
-	fprintf(stderr, "%s\n", buffer);
+	fprintf(stderr, " %s\n", buffer);
 
-	for (i = 0; i < size + 2; i++)
+	for (i = 0; i < size + 1; i++)
 		fprintf(stderr, " ");
 	for (i = 0; i < offset; i++)
 		fprintf(stderr, " ");
