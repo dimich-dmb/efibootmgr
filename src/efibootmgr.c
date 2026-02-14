@@ -1596,7 +1596,7 @@ parse_opts(int argc, char **argv)
 			errno = 0;
 			result = strtoul(optarg, &endptr, 16);
 			if ((result == ULONG_MAX && errno == ERANGE) ||
-					(*endptr != '\0')) {
+					(*endptr != '\0') || (*optarg == '\0')) {
 				print_error_arrow(optarg, endptr - optarg,
 						  "Invalid bootnum value");
 				conditional_error_reporter(opts.verbose >= 1,
@@ -1736,7 +1736,7 @@ parse_opts(int argc, char **argv)
 			errno = 0;
 			result = strtoul(optarg, &endptr, 16);
 			if ((result == ULONG_MAX && errno == ERANGE) ||
-					(*endptr != '\0')) {
+					(*endptr != '\0') || (*optarg == '\0')) {
 				print_error_arrow(optarg, endptr - optarg,
 						  "Invalid BootNext value");
 				conditional_error_reporter(opts.verbose >= 1,
